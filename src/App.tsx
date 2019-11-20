@@ -4,18 +4,12 @@ import {BrowserRouter as Router, Route, Link, Switch, RouteComponentProps} from 
 import './App.css';
 import Header from './components_ts/Header';
 import NavBar from './components_ts/NavBar';
-// import SubHeader from './components_ts/SubHeader';
+import SubHeader from './components_ts/SubHeader';
+import IntroPage from './containers_ts/IntroPage';
+// import SearchPage from './containers/SearchPage';
+// import LoginSignupPage from './containers/LoginSignupPage';
+// import LostFoundPage from './containers/LostFoundPage';
 import { User, Pet } from './TypeDefinitions';
-
-// interface User {
-//   firstName: string; 
-//   lastName: string;
-// }
-
-// interface Pet {
-//   name: string; 
-//   breed: string;
-// }
 
 interface AppState {
   currentUser: User; 
@@ -39,22 +33,23 @@ export default class App extends React.Component <{}, AppState> {
     return (
       <Router>
         <div className="App">
-          <header className="App-header">
             <div className="header-container">
               <Header />
               <NavBar currentUser={this.state.currentUser}/>
-            <div>
-              {/* <SubHeader /> */}
             </div>
+            <div className="subheader">
+              <SubHeader />
             </div>
-          </header>
+            <div className="image-container">
+              <IntroPage />
+            </div>
+          <Switch>
+            <Route exact path="/" />
+            {/* <Route exact path="/login" render={props => <LoginSignupPage {...props} setUser={this.setUser}/>} /> */}
+            {/* <Route exact path="/lostfound" render={props => <LostFoundPage {...props} setPet={this.setPet}/>} /> */}
+            {/* <Route exact path="/search" render={props => <SearchPage {...props} allPets={this.state.allPets}/>} /> */}
+          </Switch>
         </div>
-        <Switch>
-          {/* <Route exact path="/" component={IntroPage} /> */}
-          {/* <Route exact path="/login" render={props => <LoginSignupPage {...props} setUser={this.setUser}/>} /> */}
-          {/* <Route exact path="/lostfound" render={props => <LostFoundPage {...props} setPet={this.setPet}/>} /> */}
-          {/* <Route exact path="/search" render={props => <SearchPage {...props} allPets={this.state.allPets}/>} /> */}
-        </Switch>
       </Router>
     );
   }

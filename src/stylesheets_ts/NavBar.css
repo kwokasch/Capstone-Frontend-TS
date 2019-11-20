@@ -5,7 +5,7 @@
     font-family: 'Barlow Semi Condensed', sans-serif;
     font-weight: 600;
     color: #b7dfdf;
-    font-size: 22px;
+    font-size: 200%;
     flex-flow: row wrap;
     flex-direction: flex-end;
     text-align: center;
@@ -23,6 +23,6 @@
 
 @media (max-width: 900px) {
     .nav-bar {
-        font-size: 100%;
+        font-size: 130%;
     }
 }
